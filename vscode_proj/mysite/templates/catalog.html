@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров — TechStore</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- Шапка сайта (Такая же, как на главной) -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="{% url 'home' %}" class="logo">Tech<span>Store</span></a>
+            <nav class="nav">
+                <a href="{% url 'home' %}" class="nav-link">Главная</a>
+                <a href="{% url 'catalog' %}" class="nav-link">Каталог</a>
+                <a href="#" class="nav-link">Акции</a>
+                <a href="{% url 'contacts' %}" class="active-link">Контакты</a>
+            </nav>
+            <div class="header-cart">
+                <a href="{% url 'cart' %}" class="cart-btn">Корзина (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция каталога -->
+    <section class="catalog-section">
+        <div class="container">
+            <h1 class="catalog-title">Каталог техники</h1>
+            
+            <div class="products-grid">
+                <!-- Товар 1 -->
+                <div class="product-card">
+                    <div class="product-badge">Топ продаж</div>
+                    <div class="product-img">⚡</div>
+                    <h3 class="product-name">Игровая видеокарта RTX 4070 Ti</h3>
+                    <p class="product-desc">12GB GDDR6X, идеальное решение для 2K гейминга и трассировки лучей.</p>
+                    <div class="product-footer">
+                        <span class="product-price">85 000 ₽</span>
+                        <a href="#" class="buy-btn">В корзину</a>
+                    </div>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="product-card">
+                    <div class="product-badge">Новинка</div>
+                    <div class="product-img">🧠</div>
+                    <h3 class="product-name">Процессор Intel Core i7-14700K</h3>
+                    <p class="product-desc">20 ядер, 28 потоков, тактовая частота до 5.6 GHz в режиме Turbo.</p>
+                    <div class="product-footer">
+                        <span class="product-price">42 500 ₽</span>
+                        <a href="#" class="buy-btn">В корзину</a>
+                    </div>
+                </div>
+
+                <!-- Товар 3 -->
+                <div class="product-card">
+                    <div class="product-badge">Скидка</div>
+                    <div class="product-img">🖥️</div>
+                    <h3 class="product-name">Монитор 27" IPS 165Hz QHD</h3>
+                    <p class="product-desc">Яркая матрица, время отклика 1мс, поддержка G-Sync и FreeSync.</p>
+                    <div class="product-footer">
+                        <span class="product-price">29 900 ₽</span>
+                        <a href="#" class="buy-btn">В корзину</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 TechStore. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

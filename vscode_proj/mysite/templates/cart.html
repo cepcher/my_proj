@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Корзина</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- Шапка (как на главном экране) -->
+    <header class="header">
+        <div class="logo">TechStore</div>
+        <nav class="nav">
+            <a href="{% url 'home' %}" class="nav-link">Главная</a>
+            <a href="{% url 'catalog' %}" class="nav-link">Каталог</a>
+            <a href="#">Акции</a>
+            <a href="{% url 'contacts' %}" class="active-link">Контакты</a>
+        </nav>
+        <div class="cart-btn active">Корзина (2)</div>
+    </header>
+
+    <!-- Основной контент корзины -->
+    <main class="cart-container">
+        <h1 class="cart-title">Ваша корзина</h1>
+
+        <div class="cart-wrapper">
+            <!-- Список товаров -->
+            <section class="cart-items">
+                <!-- Товар 1 -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <!-- Заглушка под иконку/картинку ПК -->
+                        <span class="icon">🖥️</span>
+                    </div>
+                    <div class="item-info">
+                        <h3>Игровой ПК TechPower v1</h3>
+                        <p>Гарантия 3 года</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn">—</button>
+                        <span class="qty-num">1</span>
+                        <button class="qty-btn">+</button>
+                    </div>
+                    <div class="item-price">145 000 ₽</div>
+                    <button class="remove-btn">&times;</button>
+                </div>
+
+                <!-- Товар 2 -->
+                <div class="cart-item">
+                    <div class="item-image">
+                        <span class="icon">⌨️</span>
+                    </div>
+                    <div class="item-info">
+                        <h3>Механическая клавиатура Click Pro</h3>
+                        <p>RGB подсветка</p>
+                    </div>
+                    <div class="item-quantity">
+                        <button class="qty-btn">—</button>
+                        <span class="qty-num">1</span>
+                        <button class="qty-btn">+</button>
+                    </div>
+                    <div class="item-price">8 500 ₽</div>
+                    <button class="remove-btn">&times;</button>
+                </div>
+            </section>
+
+            <!-- Блок оформления заказа -->
+            <aside class="cart-summary">
+                <h2>Итого</h2>
+                <div class="summary-row">
+                    <span>Товары (2 шт)</span>
+                    <span>153 500 ₽</span>
+                </div>
+                <div class="summary-row">
+                    <span>Доставка</span>
+                    <span class="free-shipping">Бесплатно</span>
+                </div>
+                <hr class="summary-divider">
+                <div class="summary-row total">
+                    <span>К оплате</span>
+                    <span class="total-price">153 500 ₽</span>
+                </div>
+                <button class="checkout-btn">Оформить заказ</button>
+                <a href="#" class="continue-shopping">Вернуться в каталог</a>
+            </aside>
+        </div>
+    </main>
+
+</body>
+</html>

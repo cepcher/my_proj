@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Контакты</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+    <!-- Шапка (как на других страницах) -->
+    <header class="header">
+        <div class="logo">TechStore</div>
+        <nav class="nav">
+            <a href="{% url 'home' %}">Главная</a>
+            <a href="{% url 'catalog' %}">Каталог</a>
+            <a href="#">Акции</a>
+            <a href="{% url 'contacts' %}" class="active-link">Контакты</a>
+        </nav>
+        <a href="{% url 'cart' %}" class="cart-btn">Корзина (0)</a>
+    </header>
+
+    <!-- Основной контент страницы Контакты -->
+    <main class="contacts-container">
+        <h1 class="contacts-title">Контакты</h1>
+        <p class="contacts-subtitle">Свяжитесь с нами любым удобным способом или оставьте заявку</p>
+
+        <div class="contacts-wrapper">
+            <!-- Блок с контактной информацией -->
+            <section class="contacts-info-cards">
+                <div class="info-card">
+                    <div class="info-icon">📍</div>
+                    <div class="info-text">
+                        <h3>Наш адрес</h3>
+                        <p>г. Москва, ул. Цифровая, д. 10, офис 404</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">📞</div>
+                    <div class="info-text">
+                        <h3>Телефон</h3>
+                        <p>+7 (800) 555-35-35</p>
+                        <p class="working-hours">Ежедневно с 10:00 до 21:00</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-text">
+                        <h3>Электронная почта</h3>
+                        <p>support@techstore.ru</p>
+                        <p>sales@techstore.ru</p>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Форма обратной связи -->
+            <section class="contacts-form-box">
+                <h2>Напишите нам</h2>
+                <!-- Метод обязательно должен быть POST -->
+                <form action="{% url 'contacts' %}" method="POST" class="feedback-form">
+                    {% csrf_token %} <!-- Защита Django от хакерских атак, обязательна для всех форм -->
+                    
+                    <div class="form-group">
+                        <label for="name">Ваше имя</label>
+                        <!-- Добавляем атрибут name, совпадающий с полем в форме Django -->
+                        <input type="text" id="name" name="name" placeholder="Иван" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Ваш вопрос или предложение..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Отправить сообщение</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>

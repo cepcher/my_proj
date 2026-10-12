@@ -1,0 +1,83 @@
+{% load static %} <!-- Пишем строго на первой строчке HTML-файла -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore — Магазин компьютерной техники</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <!-- Шапка сайта (Header) -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Tech<span>Store</span></a>
+            <nav class="nav">
+                <a href="#" class="nav-link">Главная</a>
+                <a href="#" class="nav-link">Каталог</a>
+                <a href="#" class="nav-link">Акции</a>
+                <a href="{% url 'contacts' %}" class="active-link">Контакты</a>
+            </nav>
+            <div class="header-cart">
+                <a href="{% url 'cart' %}" class="cart-btn">Корзина (0)</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный баннер (Hero Section) -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Мощные компьютеры для любых задач</h1>
+                <p class="hero-subtitle">Собери ПК своей мечты или выбери готовое решение с гарантией до 3 лет.</p>
+                <a href="{% url 'catalog' %}" class="btn">В каталог</a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Сетка категорий товаров (Categories) -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Популярные категории</h2>
+            <div class="categories-grid">
+                <!-- Категория 1 -->
+                <div class="category-card">
+                    <div class="category-icon">💻</div>
+                    <h3>Ноутбуки</h3>
+                    <p>Для работы, учебы и игр</p>
+                </div>
+                <!-- Категория 2 -->
+                <div class="category-card">
+                    <div class="category-icon">🖥️</div>
+                    <h3>Игровые ПК</h3>
+                    <p>Максимальная производительность</p>
+                </div>
+                <!-- Категория 3 -->
+                <div class="category-card">
+                    <div class="category-icon">🔌</div>
+                    <h3>Комплектующие</h3>
+                    <p>Процессоры, видеокарты, память</p>
+                </div>
+                <!-- Категория 4 -->
+                <div class="category-card">
+                    <div class="category-icon">⌨️</div>
+                    <h3>Периферия</h3>
+                    <p>Мониторы, мыши, клавиатуры</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта (Footer) -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 TechStore. Все права защищены.</p>
+            <p>Телефон: 8 (800) 555-35-35 | Email: info@techstore.ru</p>
+        </div>
+    </footer>
+
+</body>
+</html>
